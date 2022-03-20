@@ -1,6 +1,6 @@
 <?php
 
-namespace Gashey\BotmanUssdDriver\Lib;
+namespace Gashey\BotmanSouthpawslUssdDriver\Lib;
 
 class UssdResponse
 {
@@ -11,10 +11,10 @@ class UssdResponse
     /**
      * indicates that the application is ending the USSD session.
      */
-    const RELEASE = '17';
+    const END = 'END';
 
     /**
      * indicates a response in an already existing USSD session.
      */
-    const RESPONSE = '2';
+    const CONTINUE = 'CONTINUE';
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Gashey\BotmanUssdDriver;
+namespace Gashey\BotmanSouthpawslUssdDriver;
 
 use Illuminate\Support\Collection;
 use BotMan\BotMan\Drivers\HttpDriver;
@@ -13,8 +13,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use BotMan\BotMan\Messages\Incoming\IncomingMessage;
 use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
-use Gashey\BotmanUssdDriver\Lib\UssdRequest;
-use Gashey\BotmanUssdDriver\Lib\UssdResponse;
+use Gashey\BotmanSouthpawslUssdDriver\Lib\UssdRequest;
+use Gashey\BotmanSouthpawslUssdDriver\Lib\UssdResponse;
 
 class UssdDriver extends HttpDriver
 {
@@ -48,9 +48,9 @@ class UssdDriver extends HttpDriver
      */
     public function matchesRequest()
     {
-        return !is_null($this->event->get('ussdServiceOp'))
+        return !is_null($this->event->get('ussdState'))
             || !is_null($this->event->get('ussdString'))
-            || !is_null($this->event->get('sessionID'))
+            || !is_null($this->event->get('sessionId'))
             || !is_null($this->event->get('network'))
             || !is_null($this->event->get('msisdn'));
     }
@@ -63,10 +63,10 @@ class UssdDriver extends HttpDriver
     public function getMessages()
     {
         if (empty($this->messages)) {
-            $message = $this->event->get('ussdServiceOp') == UssdRequest::RELEASE ?
+            $message = $this->event->get('ussdState') == UssdRequest::ACTION ?
                 $this->config->get("cancel_text", "stop") : $this->event->get('ussdString');
             $userId = $this->event->get('msisdn');
-            $sessionId = $this->event->get('sessionID');
+            $sessionId = $this->event->get('sessionId');
             $this->messages = [new IncomingMessage($message, $sessionId, $userId, $this->payload)];
         }
         return $this->messages;
@@ -114,8 +114,8 @@ class UssdDriver extends HttpDriver
 
         return [
             'message' => $message,
-            'sessionID' => $matchingMessage->getPayload()->get('sessionID'),
-            'ussdServiceOp' => empty($additionalParameters) ? UssdResponse::RESPONSE : head($additionalParameters)
+            'sessionId' => $matchingMessage->getPayload()->get('sessionId'),
+            'ussdState' => empty($additionalParameters) ? UssdResponse::CONTINUE : head($additionalParameters)
         ];
     }
 
@@ -141,8 +141,8 @@ class UssdDriver extends HttpDriver
             if ($message instanceof OutgoingMessage) {
                 $reply = [
                     'message' => $message->getText(),
-                    'sessionID' => $replyData['sessionID'],
-                    'ussdServiceOp' => $replyData['ussdServiceOp'],
+                    'sessionId' => $replyData['sessionId'],
+                    'ussdState' => $replyData['ussdState'],
 
                 ];
             }

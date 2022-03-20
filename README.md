@@ -1,4 +1,4 @@
-# BotMan Mobiverse USSD Driver for Laravel
+# BotMan Southpawsl USSD Driver for Laravel
 
 [![Latest Release on GitHub][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -6,22 +6,22 @@
 
 ## About
 
-BotMan driver to connect the Mobiverse USSD API with [BotMan](https://github.com/botman/botman)
+BotMan driver to connect the Southpawsl USSD API with [BotMan](https://github.com/botman/botman)
 
 ## Installation
 
 Install Botman for Laravel before installing this driver. See the [Botman documentation](https://botman.io/2.0/welcome).
 
-Require the `gashey/botman-ussd-driver` package in your `composer.json` and update your dependencies:
+Require the `gashey/botman-southpawsl-ussd-driver` package in your `composer.json` and update your dependencies:
 
 ```sh
-$ composer require gashey/botman-ussd-driver
+$ composer require gashey/botman-southpawsl-ussd-driver
 ```
 
-Add the Gashey\BotmanUssdDriver\UssdServiceProvider to your `providers` array:
+Add the Gashey\BotmanSouthpawslUssdDriver\UssdServiceProvider to your `providers` array:
 
 ```php
-Gashey\BotmanUssdDriver\UssdServiceProvider::class,
+Gashey\BotmanSouthpawslUssdDriver\UssdServiceProvider::class,
 ```
 
 Add the following listener to your botman routes file:
@@ -41,7 +41,7 @@ You can use the [Mobiverse USSD Simulator](https://apps.mobivs.com/USSDSIM/) to 
 The defaults are set in `config/botman/ussd.php`. Publish the config using this command:
 
 ```sh
-$ php artisan vendor:publish --provider="Gashey\BotmanUssdDriver\UssdServiceProvider"
+$ php artisan vendor:publish --provider="Gashey\BotmanSouthpawslUssdDriver\UssdServiceProvider"
 ```
 
 ```php
@@ -57,14 +57,14 @@ return [
 
 Released under the MIT License, see [LICENSE](LICENSE).
 
-[ico-version]: https://img.shields.io/github/release/gashey/botman-ussd-driver.svg?style=flat-square
+[ico-version]: https://img.shields.io/github/release/gashey/botman-southpawsl-ussd-driver.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/gashey/botman-ussd-driver.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/gashey/botman-ussd-driver.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/gashey/botman-ussd-driver.svg?style=flat-square
-[link-packagist]: https://packagist.org/packages/gashey/botman-ussd-driver
-[link-scrutinizer]: https://scrutinizer-ci.com/gashey/botman-ussd-driver/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/gashey/botman-ussd-driver
-[link-downloads]: https://packagist.org/packages/gashey/botman-ussd-driver
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/gashey/botman-southpawsl-ussd-driver.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/gashey/botman-southpawsl-ussd-driver.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/gashey/botman-southpawsl-ussd-driver.svg?style=flat-square
+[link-packagist]: https://packagist.org/packages/gashey/botman-southpawsl-ussd-driver
+[link-scrutinizer]: https://scrutinizer-ci.com/gashey/botman-southpawsl-ussd-driver/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/gashey/botman-southpawsl-ussd-driver
+[link-downloads]: https://packagist.org/packages/gashey/botman-southpawsl-ussd-driver
 [link-author]: https://github.com/gashey
 [link-contributors]: ../../contributors

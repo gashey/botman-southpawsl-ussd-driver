@@ -1,6 +1,6 @@
 <?php
 
-namespace Gashey\BotmanUssdDriver\Lib;
+namespace Gashey\BotmanSouthpawslUssdDriver\Lib;
 
 class UssdRequest
 {
@@ -9,28 +9,9 @@ class UssdRequest
      * REQUEST TYPES:
      */
 
-    /**
-     * indicates the first message in a USSD Session
-     */
-    const INITIATION = '1';
+    const ACTION = 'ACTION';
 
-    /**
-     * indicates a follow up in an already existing USSD session.
-     */
-    const RESPONSE = '18';
+    const REDIRECT = 'REDIRECT';
 
-    /**
-     * indicates that the subscriber is ending the USSD session.
-     */
-    const RELEASE = '30';
 
-    /**
-     * indicates that the USSD session has timed out.
-     */
-    const TIMEOUT = 'Timeout';
-
-    /**
-     * indicates that the user data should not be passed onto Hubtel (Safaricom Only).
-     */
-    const HIJACKSESSION = 'HijackSession';
 }

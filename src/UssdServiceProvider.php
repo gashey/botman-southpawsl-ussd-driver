@@ -1,9 +1,9 @@
 <?php
 
-namespace Gashey\BotmanUssdDriver;
+namespace Gashey\BotmanSouthpawslUssdDriver;
 
 use BotMan\BotMan\Drivers\DriverManager;
-use Gashey\BotmanUssdDriver\UssdDriver;
+use Gashey\BotmanSouthpawslUssdDriver\UssdDriver;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
